@@ -4,3 +4,60 @@
 ✦ theme-light — класс светлой темы
 ✦ не забудьте описать стили для изменения темы через медизапрос пользовательских предпочтений
 */
+
+:root.theme-light {
+    --font-pixel: 'Press Start 2P', system-ui;
+    --font-normal: 'Inter', sans-serif;
+    --fontWeight-regular: 400;
+    --fontWeight-bold: 700;
+
+    --color-background: #fff;
+    --color-accent: #000;
+    --color-button-text: #fff;
+    --color-heart-contour: #000;
+    --color-heart-sparks: #FF0000;
+
+
+    --background-page: repeating-linear-gradient(90deg, #d3d3d3, transparent 4px),
+    repeating-linear-gradient(#d3d3d3, transparent 4px),
+    linear-gradient(180deg, rgba(231,231,231,1) 0%, rgba(231,231,231,1) 0.1%, rgba(26,26,26,1) 100%);;
+}
+:root.theme-dark {
+    --font-pixel: 'Press Start 2P', system-ui;
+    --font-normal: 'Inter', sans-serif;
+    --fontWeight-regular: 465;
+    --fontWeight-bold: 785;
+
+    --color-background: #000;
+    --color-accent: rgba(0, 204, 20, 1);
+    --color-button-text: rgba(0, 204, 20, 1);
+    --color-heart-contour: rgba(0, 204, 20, 1);
+    --color-heart-sparks: #FF0000;
+
+
+    --background-page: repeating-linear-gradient(90deg, #000, transparent 4px),
+    repeating-linear-gradient(#000, transparent 4px),
+    linear-gradient(180deg, #007f0c 0%, #004306 100%);
+}
+
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --font-pixel: 'Press Start 2P', system-ui;
+        --font-normal: 'Inter', sans-serif;
+        --fontWeight-regular: 465;
+        --fontWeight-bold: 785;
+        
+        --color-background: #000;
+        --color-accent: rgba(0, 204, 20, 1);
+        --color-button-text: rgba(0, 204, 20, 1);
+        --color-heart-contour: rgba(0, 204, 20, 1);
+        --color-heart-sparks: #FF0000;
+        
+  
+        --background-page: repeating-linear-gradient(90deg, #000, transparent 4px),
+        repeating-linear-gradient(#000, transparent 4px),
+        linear-gradient(180deg, #007f0c 0%, #004306 100%);
+    }
+    
+  }

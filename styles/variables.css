@@ -1,1 +1,19 @@
 /* В этом файле будут храниться все значения переменных в исходном состоянии, а так же их изменения в зависимости от ширины устройства */
+
+:root {
+--font-pixel: 'Press Start 2P', system-ui;
+--font-normal: 'Inter', sans-serif;
+--fontWeight-regular: 400;
+--fontWeight-bold: 700;
+--fontSize-title: clamp(3.063rem, 2.71rem + 1.502vw, 4.063rem);
+--fontSize-subtitle:clamp(0.875rem, 0.677rem + 0.845vw, 1.438rem);
+--color-background: #fff;
+--color-accent: #000;
+--color-button-text: #fff;
+--color-heart-contour: #000;
+--color-heart-sparks: #FF0000;
+
+--background-page: repeating-linear-gradient(90deg, #d3d3d3, transparent 4px),
+repeating-linear-gradient(#d3d3d3, transparent 4px),
+linear-gradient(180deg, rgba(231,231,231,1) 0%, rgba(231,231,231,1) 0.1%, rgba(26,26,26,1) 100%);;
+}

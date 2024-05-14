@@ -13,8 +13,590 @@
 Кроме этого, не меняйте HTML переключателя тем. Его разметка также гарантирует работу своего скрипта.
 
 */
+*::-webkit-scrollbar {
+  display: none;
+  
+}
 
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
+
+  background: var(--background-page);
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  background-attachment: fixed;
+  background-size: cover;
+
+  width: 100%;
+  max-width: 1440px;
+
+  padding: 100px 0 0;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  color: var(--color-accent);
+}
+
+/* HEADER */
+.header {
+  background-color: var(--color-background);
+  border: 2px var(--color-accent) solid;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+
+  width: 100%;
+  max-width: 700px;
+  padding-top: 136px;
+  padding-bottom: 25px;
+  margin-bottom: 100px;
+}
+
+.logo-group {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.title {
+  font-family: var(--font-pixel);
+  font-size: var(--fontSize-title);
+  line-height: 65px;
+}
+
+.subtitle {
+  font-family: var(--font-pixel);
+  font-size: var(--fontSize-subtitle);
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 23px;
+
+}
+
+.theme-menu {
+  padding-left: 18px;
+}
+
+.theme-menu__list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: flex-start;
+
+  width: fit-content;
+}
+
+.theme-menu__item {
+  height: 14px;
+}
+
+.theme-menu__button {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+
+  font-family: var(--font-pixel);
+  font-size: 14px;
+  text-transform: uppercase;
+  line-height: 14px;
+
+  position: relative;
+
+  transition: opacity .3s ease;
+}
+
+.theme-menu__button:hover {
+  opacity: 60%;
+}
+
+.theme-menu__button:focus-visible {
+  outline: none;
+
+  opacity: 60%;
+}
+
+.theme-menu__button::after {
+  content: '';
+
+  position: absolute;
+  top: 100%;
+  left: 0;
+  
+  width: 100%;
+  height: 2px;
+
+  background-color: var(--color-accent);
+ 
+  transition: transform .3s ease;
+  transform: scale(0);
+}
+
+.theme-menu__button:focus-visible::after {
+  
+  opacity: 60%;
+  transform: scale(1);
+}
+
+.theme-menu__button[disabled=disabled], .theme-menu__button:disabled {
+  opacity: 60%;
+  pointer-events: none;
+}
+
+.theme-menu__button[disabled=disabled]::before, .theme-menu__button:disabled::before {
+  content: '▶';
+  
+  position: absolute;
+  top: 0;
+  left: -20px;
+  
+  pointer-events: none;
+
+  animation: pointer-active 1s ease-in-out  infinite backwards;
+}
+
+@keyframes pointer-active {
+  0% {
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: translateX(4px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* MAIN */
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+
+  max-width: 700px;
+}
+
+.post {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  background-color: var(--color-background);
+}
+
+.post__title {
+  font-family: var(--font-normal);
+  font-size: 18px;
+  font-weight: var(--fontWeight-bold);
+  line-height: 21px;
+
+  padding: 5px 10px 5px 10px;
+
+  border-top: 2px var(--color-accent) solid;
+  border-left: 2px var(--color-accent) solid;
+  border-right: 2px var(--color-accent) solid;
+}
+
+.img-wrapper {
+  position: relative;
+
+  width: 100%;
+  padding-top: calc(100% - 4px);
+
+  border: 2px solid var(--color-accent);
+
+}
+
+.post:nth-child(1) img  {
+  filter: contrast(200%);
+}
+
+.post:nth-child(2) img  {
+  filter: brightness(0.4);
+}
+
+.post:nth-child(3) img  {
+  filter: drop-shadow(16px 16px 20px blue);
+}
+
+.post:nth-child(4) img  {
+  filter: grayscale(50%);
+}
+
+.post:nth-child(5) img  {
+  filter: hue-rotate(90deg);
+}
+
+.post:nth-child(6) img  {
+  filter: invert(75%);
+}
+
+.post:nth-child(7) img  {
+  filter: blur(5px);
+}
+
+.post:nth-child(8) img  {
+  filter: sepia(60%) hue-rotate(45deg);
+}
+
+.watermark {
+  position: absolute;
+  top: 25px;
+  right: 27px;
+
+  font-family: var(--font-pixel);
+  font-size: 14px;
+
+  mix-blend-mode: hard-light;
+  -webkit-text-stroke-width: .3px;
+  -webkit-text-stroke-color: var(--color-background);
+
+  opacity: 50%;
+}
+
+.post__img {
+  position: absolute;
+
+  object-fit: cover;
+    top: 0px;
+    left: 0px;
+
+  width: 100%;
+  height: 100%;
+}
+
+.post__footer {
+  display: flex;
+  flex-direction: column;
+
+  border-bottom: 2px var(--color-accent) solid;
+  border-left: 2px var(--color-accent) solid;
+  border-right: 2px var(--color-accent) solid;
+}
+
+.post__text {
+  margin: 25px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 27px;
+
+}
+
+.text {
+  font-family: var(--font-normal);
+  font-size: 18px;
+  font-weight: var(--fontWeight-regular);
+
+  line-height: 21px;
+}
+
+.like-button-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  align-self: flex-end;
+
+  padding: 0 25px 25px 0;
+}
+
+.card__icon-button {
+  background-color: transparent;
+  
+  border: 2px solid transparent;
+
+  padding: 0;
+
+  width: 39px;
+  height: 37px;
+
+  transition: border .3s ease;
+}
+
+.card__icon-button:focus-visible {
+  outline: none;
+  border: 2px solid var(--color-accent);
+
+}
+
+.card__icon-button:active {
+  color: #ff0000;
+
+}
+.sparks {
+  opacity: 0%;
+
+}
+
+.contour {
+  transition: color .3s .06s ease;
+}
+
+.card__icon-button:active .contour {
+  color: var(--color-accent);
+
+}
+
+.core {
+  opacity: 0%;
+  transition: opacity .3s  .03s ease, color .3s .03s ease;
+}
+
+.card__icon-button:hover .core {
+  opacity: 100%;
+  transition: opacity .3s ease, color .3s   ease;
+}
+
+.main-body {
+  opacity: 0%;
+  transition: color .3s  ease, opacity .3s ease;
+}
+.card__icon-button:hover .main-body {
+  opacity: 100%;
+  transition: opacity .3s  .05s ease, color .3s .05s ease;
+
+}
+
+.like-icon.is-liked .contour {
+  transition: color .1s ease;
+
+}
+
+.like-icon.is-liked .heart {
+  color: #ff0000;
+  animation: heart-scale .3s ease-in .1s alternate;
+  transform-origin:50% 50%;
+}
+
+.like-icon.is-liked .main-body, .like-icon.is-liked .core{
+  opacity: 100%;
+}
+
+.like-icon.is-liked .sparks {
+  animation: sparks-opacity .3s ease-in .3s alternate;
+}
+
+@keyframes sparks-opacity {
+  0% {
+    opacity: 0%;
+  }
+
+  50% {
+    opacity: 100%;
+  }
+
+  100% {
+    opacity: 0%;
+  }
+}
+
+@keyframes heart-scale {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.5);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.card__like-button {
+  position: relative;
+  height: 38px;
+
+  padding: 11px 21px;
+
+  font-family: var(--font-pixel);
+  font-size: 14px;
+  line-height: 14.6px;
+  text-transform: capitalize;
+
+
+  background-color: transparent;
+  border: 2px solid var(--color-accent);
+}
+
+.card__like-button .button__text {
+  width: 84px;
+  display: block;
+}
+
+.card__like-button, .button-save {
+  transition: box-shadow .3s ease;
+
+  overflow: hidden;
+
+  background-color: var(--color-background);
+
+  isolation: isolate;
+}
+
+.card__like-button::before, .button-save::before {
+  content: '';
+
+  position: absolute;
+  top: 0px;
+  left: 0px;
+
+  width: 100%;
+  height: 100%;
+
+  background-color: var(--color-accent);
+
+  transform: translateX(-100%);
+  transition: transform .5s ease-in-out;
+}
+
+.card__like-button:hover::before, .button-save:hover::before {
+  transform: translateX(0);
+}
+
+.card__like-button:focus, .button-save:focus {
+  outline: none;
+
+  box-shadow: 2px 2px 0px var(--color-accent);
+}
+
+.button__text {
+  position: relative;
+  z-index: 10;
+  
+  mix-blend-mode: difference;
+  transition: all .5s ease-in-out;
+  color: var(--color-button-text);
+}
+
+/* FOOTER */
+.footer {
+  margin-top: 50px;
+  margin-bottom: 103px;
+
+  max-width: 700px;
+}
+
+.button-save {
+  font-family: var(--font-pixel);
+  font-size: 14px;
+  line-height: 15.6px;
+
+  background-color: var(--color-background);
+
+  border: 2px solid var(--color-accent) ;
+
+  padding: 15px 21px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  position: relative;
+}
+
+.button-save svg{
+  width: 21px;
+  height: 21px;
+}
+
+.button-save .button__text {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+}
+
+/* dialog */
+#saveDialog[open] {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 30px;
+  background-color: var(--color-background);
+  color: var(--color-accent);
+
+  max-width: 353px;
+}
+
+#saveDialog::backdrop {
+  background-color: rgba(0, 0, 0, .75);
+}
+
+.dialog-wrapper {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+#saveDialog svg {
+  width: fit-content;
+  max-width: 39px;
+  max-height: 39px;
+}
+
+#saveDialog use {
+  width: 100%;
+  height: 100%;  
+}
+
+.dialog-text {
+  font-size: 14px;
+  line-height: 21px;
+  font-family: var(--font-pixel);
+  text-transform: uppercase;
+}
+
+#saveDialog button {
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 395px) {
+  .header {
+    padding-top: 120px;
+  }
+
+  .title {
+    line-height: 49px;
+  }
+
+  .subtitle {
+    line-height: 14px;
+  }
+
+  .watermark {
+    top: 24px;
+    right: 11px;
+  }
+
+  .button-save .button__text {
+   flex-direction: column;
+  }
+  
+  .button-save svg{
+    width: 28px;
+    height: 28px;
+    
+  }
+
+  #saveDialog[open] {
+    padding: 30px 40px;
+    max-width: 341px;
+  }
+}
+@supports (not (-webkit-text-stroke: green)) and (not (text-stroke: green)) {
+  .watermark {
+    text-shadow: 0px 0px 2px rgba(255, 255, 255, 1);
+  }
 }
