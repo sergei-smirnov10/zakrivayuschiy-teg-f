@@ -387,11 +387,15 @@
           дискету, чтобы продолжить
         </p>
       </div>
-      <button class="button-save" onclick="window.saveDialog.close()">
-        <span class="button__text">ок</span>
-      </button>
+      <form method="dialog">
+        <!-- Если у тега <button> не указан type, то по-умолчанию
+        он будет type="submit" ! -->
+        <button class="button-save" type="submit">
+          <span class="button__text">ок</span>
+        </button>
+      </form>
+      
     </dialog>
     <script src="./scripts/like.js"></script>
   </body>
 </html>
-
