@@ -13,9 +13,6 @@
 Кроме этого, не меняйте HTML переключателя тем. Его разметка также гарантирует работу своего скрипта.
 
 */
-*::-webkit-scrollbar {
-  display: none;
-}
 
 .page {
   min-inline-size: 320px;
@@ -478,7 +475,7 @@
   background-color: var(--color-background);
   color: var(--color-accent);
 
-  max-width: 353px;
+  max-width: 359px;
 }
 
 .dialog::backdrop {
@@ -512,6 +509,7 @@
 .dialog button {
   text-transform: uppercase;
   width: 100%;
+  padding: 9px 21px;
 }
 
 @media screen and (max-width: 395px) {
